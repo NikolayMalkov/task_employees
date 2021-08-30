@@ -9,6 +9,12 @@
       "firstName": "Игорь",
       "lastName": "Денисов",
       "id": 2
+    },
+    {
+      "firstName": "Сергей",
+      "lastName": "Сергеев",
+      "apiId": "v1",
+      "id": 3
     }
   ]
 }

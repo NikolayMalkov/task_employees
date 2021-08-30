@@ -1,11 +1,15 @@
 import EmployeesList from './components/EmployeesList';
+import { ToastProvider, useToasts } from 'react-toast-notifications'
 import './App.css';
 
 function App() {
   return (
-    <div className="wrap">
-       <EmployeesList />
-    </div>
+    <ToastProvider>
+      <div className="wrap">
+        <EmployeesList />
+      </div>
+    </ToastProvider>
+
   );
 }
 

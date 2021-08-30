@@ -4,17 +4,19 @@ import styles from './../css/employees_list.module.css';
 import EmployeesItem from './EmployeesItem';
 import { addEmployee } from '../access/access';
 
+
+
 export default function EmployeesList() {
+
 
     const [modalVisible, setModalVisible] = useState(false)
     const [persons, setPersons] = useState()
 
 
-
     useEffect(() => {
         axios({
             method: 'get',
-            url: 'http://localhost:3000/person'
+            url: 'http://localhost:3000/api/v1/persons'
         })
             .then((res) => setPersons(res.data))
     }, [])
@@ -50,6 +52,8 @@ export default function EmployeesList() {
 
     return (
         <div className={styles.container}>
+
+        
             {modalVisible ? <AddingEmp /> : null}
             <div className={styles.table_header}>
                 <div className={styles.header_items}>
