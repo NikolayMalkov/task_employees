@@ -1,5 +1,14 @@
 {
-    "person": [
-      { "id": 1, "firstName": "test", "lastName": "test" }
-    ]
-  }
+  "person": [
+    {
+      "firstName": "Андрей",
+      "lastName": "Иванов",
+      "id": 1
+    },
+    {
+      "firstName": "Игорь",
+      "lastName": "Денисов",
+      "id": 2
+    }
+  ]
+}

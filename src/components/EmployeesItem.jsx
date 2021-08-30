@@ -1,12 +1,19 @@
 import { useState } from 'react';
+import { deleteEmployee, updEmployee } from '../access/access';
 import styles from './../css/employees_list.module.css'
 
-export default function EmployeesItem({firstName, lastName}){
+export default function EmployeesItem({id, firstName, lastName}){
 
     const [modalEditVisible, setModalEditVisible] = useState(false);
     const [modalDeleteVisible, setModalDeleteVisible] = useState(false);
 
+    // Редактирование сотрудника
+
     function EditEmp() {
+
+        const [firstName, setFirstName] = useState('');
+        const [lastName, setLastName] = useState('');
+
         return (
             <div className={styles.modalWrap}>
                 <div className={styles.modal}>
@@ -15,15 +22,17 @@ export default function EmployeesItem({firstName, lastName}){
                         <h3>Редактирование сотрудника</h3>
                     </div>
                     <div className={styles.modal_inputs}>
-                        <input type="text" name="firstName" />
-                        <input type="text" name="lastName" />
-                        <button>Сохранить</button>
+                        <input type="text" name="firstName" value={firstName} onChange={e => setFirstName(e.target.value)} />
+                        <input type="text" name="lastName" value={lastName} onChange={e => setLastName(e.target.value)} />
+                        <button onClick={() => updEmployee(id, firstName, lastName)} >Сохранить</button>
                     </div>
 
                 </div>
             </div>
         )
     }
+
+    //Удаление сотрудника
 
     function RemoveEmp(){
         return (
@@ -35,13 +44,15 @@ export default function EmployeesItem({firstName, lastName}){
                     </div>
                     <div className={styles.modal_inputs}>
             
-                        <button style={{backgroundColor: 'red'}}>Удалить</button>
+                        <button style={{backgroundColor: 'red'}} onClick={() => deleteEmployee(id)} >Удалить</button>
                     </div>
 
                 </div>
             </div>
         )
     }
+
+    // Лист сотрудника
 
     return (
         <div className={styles.listItem}>
